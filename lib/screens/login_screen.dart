@@ -16,9 +16,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    if (auth.user != null) {
-      Navigator.pushReplacementNamed(context, '/topics');
-    }
+    // if (auth.user != null) {
+    //   Navigator.pushReplacementNamed(context, '/topics');
+    // }
   }
 
   @override
@@ -27,37 +27,39 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         padding: EdgeInsets.all(30),
         decoration: BoxDecoration(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            FlutterLogo(
-              size: 150,
-            ),
-            Text('Login to Start'),
-            LoginButton(
-              text: 'Google Sign In',
-              icon: FontAwesomeIcons.google,
-              color: Colors.black45,
-              loginMethod: () async {
-                var user = await auth.googleSignIn();
-                if (user != null) {
-                  Navigator.pushReplacementNamed(context, '/topics');
-                }
-                setState(() {});
-              },
-            ),
-            LoginButton(
-              text: 'Continue as Guest',
-              loginMethod: () async {
-                var user = await auth.anonLogin();
-                if (user != null) {
-                  Navigator.pushReplacementNamed(context, '/topics');
-                }
-                setState(() {});
-              },
-            )
-          ],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              FlutterLogo(
+                size: 150,
+              ),
+              Text('Login to Start'),
+              LoginButton(
+                text: 'Google Sign In',
+                icon: FontAwesomeIcons.google,
+                color: Colors.black45,
+                loginMethod: () async {
+                  var user = await auth.googleSignIn();
+                  if (user != null) {
+                    Navigator.pushReplacementNamed(context, '/topics');
+                  }
+                  setState(() {});
+                },
+              ),
+              LoginButton(
+                text: 'Continue as Guest',
+                loginMethod: () async {
+                  var user = await auth.anonLogin();
+                  if (user != null) {
+                    Navigator.pushReplacementNamed(context, '/topics');
+                  }
+                  setState(() {});
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
