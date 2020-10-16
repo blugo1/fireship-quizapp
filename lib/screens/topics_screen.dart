@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../shared/bottom_nav.dart';
+
 class TopicsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,6 +13,7 @@ class TopicsScreen extends StatelessWidget {
       body: Center(
         child: Text('Topics about this app...'),
       ),
+      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }

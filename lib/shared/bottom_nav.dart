@@ -1,4 +1,7 @@
+//Flutter
 import 'package:flutter/material.dart';
+
+//Packages
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
