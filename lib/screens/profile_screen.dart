@@ -19,7 +19,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(user.email),
+        title: Text('test'),
         backgroundColor: Colors.deepOrange,
       ),
       body: Center(

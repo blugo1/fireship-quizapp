@@ -1,6 +1,12 @@
 //Flutter
 import 'package:flutter/material.dart';
+
+//Packages
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:apple_sign_in/apple_sign_in.dart';
+
+//Firebse
+import 'package:firebase_auth/firebase_auth.dart';
 
 //Services
 import '../services/services.dart';
@@ -48,6 +54,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   setState(() {});
                 },
               ),
+              FutureBuilder<Object>(
+                  future: auth.appleSignInAvailable,
+                  builder: (context, snapshot) {
+                    if (snapshot.data == true) {
+                      return AppleSignInButton(
+                        onPressed: () async {
+                          User user = await auth.appleSignIn();
+                          if (user != null) {
+                            Navigator.pushReplacementNamed(context, '/topics');
+                          }
+                        },
+                      );
+                    } else {
+                      return Container();
+                    }
+                  }),
               LoginButton(
                 text: 'Continue as Guest',
                 loginMethod: () async {
