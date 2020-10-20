@@ -11,7 +11,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
 //Services
-import 'package:quizapp_fireship/services/auth.dart';
+import 'services/services.dart';
 
 //Screens
 import 'screens/screens.dart';
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       //Provider
       providers: [
+        StreamProvider<Report>.value(value: Global.reportRef.documentStream),
         StreamProvider<User>.value(value: AuthService().user),
       ],
 
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
             bodyText1: TextStyle(fontSize: 18),
             bodyText2: TextStyle(fontSize: 16),
             button: TextStyle(letterSpacing: 1.5, fontWeight: FontWeight.bold),
-            headline1: TextStyle(fontWeight: FontWeight.bold),
+            headline1: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             subtitle1: TextStyle(color: Colors.grey),
           ),
         ),

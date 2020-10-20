@@ -80,6 +80,7 @@ class AuthService {
     }
   }
 
+  //Send user data to the db
   Future<void> updateUserData(User user) {
     DocumentReference reportRef = _db.collection('reports').doc(user.uid);
 

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class QuizScreen extends StatelessWidget {
+  final String quizId;
+
+  QuizScreen({this.quizId});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
