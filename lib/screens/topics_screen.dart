@@ -68,35 +68,37 @@ class TopicItem extends StatelessWidget {
                 ),
               );
             },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  'assets/covers/${topic.img}',
-                  fit: BoxFit.contain,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10, right: 10),
-                        child: Text(
-                          topic.title,
-                          style: TextStyle(
-                              height: 1.5, fontWeight: FontWeight.bold),
-                          overflow: TextOverflow.fade,
-                          softWrap: false,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                    'assets/covers/${topic.img}',
+                    fit: BoxFit.contain,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 10, right: 10),
+                          child: Text(
+                            topic.title,
+                            style: TextStyle(
+                                height: 1.5, fontWeight: FontWeight.bold),
+                            overflow: TextOverflow.fade,
+                            softWrap: false,
+                          ),
                         ),
                       ),
-                    ),
-                    // Text(topic.description)
-                  ],
-                ),
-                // )
-                TopicProgress(topic: topic),
-              ],
+                      // Text(topic.description)
+                    ],
+                  ),
+                  // )
+                  TopicProgress(topic: topic),
+                ],
+              ),
             ),
           ),
         ),
