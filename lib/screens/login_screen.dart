@@ -22,13 +22,14 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    // if (auth.user != null) {
-    //   Navigator.pushReplacementNamed(context, '/topics');
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (auth.user != null) {
+      Navigator.pushReplacementNamed(context, '/topics');
+    }
+
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(30),
